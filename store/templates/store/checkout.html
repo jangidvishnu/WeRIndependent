@@ -1,0 +1,19 @@
+{% extends "store/basic.html" %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'store/css/checkoutstyle.css' %}">
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>This is Your Items </h1>
+    <ul id="items-list" class="list-group">
+    </ul>
+    <div class="alert alert-dark" id="pricealert" role="alert">
+        
+    </div>
+</div>
+
+{% endblock %}
+{% block js %}
+<script src="{% static 'store/js/checkout.js' %}"></script>
+{% endblock %}

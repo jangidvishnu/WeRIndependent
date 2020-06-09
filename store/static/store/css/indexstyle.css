@@ -1,0 +1,135 @@
+/*<----------------------------------------------NAVIGATION BAR------------------------------------------>*/
+.navbar {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+.btnCart {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.nav-item {
+    margin-left: 6px;
+    margin-top: 3px;
+    border-radius: 6px;
+}
+
+.nav-item:hover {
+    background-color: black;
+}
+
+#btnCheckout{
+    margin-left: 5px;
+}
+/*<----------------------------------------------CATEGORY HEADINGS--------------------------------------->*/
+
+.category-heading {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 5vh;
+}
+
+/*<---------------------------------------------PRODUCTS SLIDE---------------------------------------------->*/
+/*--------carousel---------*/
+
+#carouselExampleIndicators {
+    margin-top: 4vh;
+}
+
+/*Carousel Item CArd deck*/
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5vh 10vw;
+}
+
+/*---------card image---------*/
+
+.card img {
+    width: 15rem;
+    height: 11rem;
+    margin: auto;
+}
+
+/*---------control buttons---------*/
+
+.carousel-control-prev {
+    z-index: 0;
+    margin-left: 2vw;
+    width: 3vw;
+}
+
+.carousel-control-next {
+    z-index: 0;
+    margin-right: 2vw;
+    width: 3vw;
+}
+
+.carousel-control-next-icon {
+    background-color: red;
+}
+
+.carousel-control-prev-icon {
+    background-color: red;
+}
+
+/*---------Footer---------*/
+
+.card-footer {
+    width: 100%;
+    background-color: transparent;
+}
+
+.card-footer .btn-primary {
+    margin-left: 7px;
+}
+
+.card-footer .btnPlus {
+    margin-left: 7px;
+}
+
+/*---------Indicators---------*/
+
+.carousel-indicators {
+    z-index: 0;
+}
+
+.carousel-indicators li {
+    margin-top: 2vh;
+    background-color: red;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}
+
+@media (max-width: 350px) {
+
+    .card-footer .btn-primary {
+        margin: auto;
+        margin-top: 5px;
+    }
+
+    .card-footer .span-cart {
+        margin: auto;
+    }
+}
+
+@media (max-width: 1430px) {
+
+    .card-footer .btn-primary {
+        margin: auto;
+        margin-top: 5px;
+    }
+
+    .card-footer .span-cart {
+        margin: auto;
+    }
+}

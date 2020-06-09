@@ -1,0 +1,10 @@
+.price-badge
+{
+text-align: start;
+position: absolute;
+left: 50%;
+width: 125px;
+}
+#pricealert{
+    margin-top: 10px;
+}

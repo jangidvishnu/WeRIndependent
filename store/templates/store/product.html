@@ -1,0 +1,41 @@
+{% extends "store/basic.html" %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/store/css/productstyle.css' %}">
+{% endblock %}
+{% block title %} WeRIndependent | Store | Contact {% endblock %}
+
+{% block navitem-cart %}
+
+<button type="button" id="ibtnCart" class="btn btn-secondary btnCart" data-container="body" data-toggle="popover"
+        data-trigger="click" data-html="true" data-placement="bottom" data-content="">
+    Cart
+</button>
+{% endblock %}
+{% block body %}
+<div class="row pr-row-div">
+    <div class="col-sm-5 pr-img-div">
+        <img class="img-fluid pr-img" src="/media/{{product.product_image}}">
+    </div>
+    <div class="col-sm-6 pr-desc-div">
+        <h2 id="pr{{product.id}}" >{{product.product_name}}</h2>
+        <h3 id="prprice{{product.id}}">Price : Rs. {{product.price}}</h3>
+        <hr>
+        <p>{{product.description}}
+        <p>
+    </div>
+</div>
+<div class="col-sm-5">
+    <div class="btn-row-div ">
+        <span id="sbtnAtc{{product.id}}" class="span-cart">
+            <button class="btn btn-primary cart" id="btnAtc{{product.id}}">Add To Cart</button>
+        </span>
+        <a href="/store/checkout">
+            <button class="btn  btn-primary checkout-btn">Checkout</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static '/store/js/product.js' %}"></script>
+{% endblock %}

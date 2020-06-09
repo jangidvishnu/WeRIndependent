@@ -1,0 +1,96 @@
+{% extends "store/basic.html" %}
+{% block css %}
+{% load static %}
+<!-- LOAD CSS -->
+<link rel="stylesheet" href='{% static "store/css/indexstyle.css" %}'>
+{% endblock %}
+{% block title %} WeRIndependent | Store {% endblock %}
+<!-- NAV ITEM -->
+{% block navitem-category %}
+<li class="nav-item active dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Category
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% for category in categories %}
+        <a class="dropdown-item" href="#{{category}}Title">{{category}}</a>
+        {% endfor %}
+    </div>
+</li>
+{% endblock %}
+{% block navitem-search %}
+
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search Products" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+{% endblock %}
+{% block navitem-cart %}
+
+<button type="button" id="ibtnCart" class="btn btn-secondary btnCart" data-container="body" data-toggle="popover"
+    data-trigger="click" data-html="true" data-placement="bottom" data-content="">
+    Cart
+</button>
+{% endblock %}
+<!-- BODY STARTS -->
+{% block body %}
+<!-- Loop For Products Slide -->
+{% for products, range, noOfSlides in allProducts %}
+<h3 class="category-heading" id="{{products.0.category}}Title">{{products.0.category}}</h3>
+<div id="carouselExampleIndicators{{forloop.counter}}" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators{{forloop.counter}}" data-slide-to="0" class="active"></li>
+        {% for i in range %}
+        <li data-target="#carouselExampleIndicators{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+        {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="card-deck">
+                {% for i in products %}
+                <div class="card col-xs-3 col-sm-3 ">
+                    <img src="/media/{{i.product_image}}" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="pr{{i.id}}">{{i.product_name}}</h5>
+                        <h6 class="card-text" id="prprice{{i.id}}">Price : Rs. {{i.price}}</h6>
+                        <p class="card-text">{{i.description|slice:":40"}}..</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <span id="sbtnAtc{{i.id}}" class="span-cart">
+                                <button class="btn btn-primary cart" id="btnAtc{{i.id}}">Add To Cart</button>
+                            </span>
+                            <a href="/store/product/pr{{i.id}}"> <button class="btn  btn-primary quickView-btn ">Quick
+                                    View</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:4 and not forloop.last %}
+            </div>
+        </div>
+        <div class="carousel-item ">
+            <div class="card-deck">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators{{forloop.counter}}" role="button"
+            data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators{{forloop.counter}}" role="button"
+            data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+<!-- BODY ENDS -->
+<!------------------------------------- JAVASCRIPT FILES --------------------->
+{% block js %}
+<script type="text/javascript" src='{% static "store/js/indexjs.js" %} '></script>
+{% endblock %}
